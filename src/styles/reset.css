@@ -1,0 +1,46 @@
+/* Minimal CSS reset.
+   Wrapped in @layer base so Tailwind utilities (which live in @layer utilities)
+   win over it — otherwise unlayered reset rules like `* { margin: 0 }` beat every
+   `mt-*`/`m-*` utility and force callers to reach for `!important`. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+  /* Tailwind v4 follows the browser default (cursor: default) for buttons;
+     restore the expected pointer for every enabled button. */
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}

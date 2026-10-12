@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": false },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "storybook-static",
+    "**/*.stories.tsx",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "**/__tests__/**"
+  ]
+}

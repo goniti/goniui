@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+@import '../src/styles/index.css';
+
+/* Stories also live next to the sources. */
+@source '../src';

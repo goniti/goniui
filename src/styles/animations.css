@@ -1,0 +1,183 @@
+/* Keyframes and `animate-*` utilities used by the components. */
+
+/* Radix Collapsible height animations (shadcn pattern — uses --radix-collapsible-content-height). */
+@keyframes collapsible-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes collapsible-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+/* Progress indeterminate animation */
+@keyframes indeterminate-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(600%);
+  }
+}
+
+/* Circular Progress indeterminate spin */
+@keyframes progress-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@theme {
+  --animate-collapsible-down: collapsible-down 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --animate-collapsible-up: collapsible-up 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --animate-skeleton-shimmer: skeleton-shimmer 1.5s ease-in-out infinite;
+  --animate-indeterminate-progress: indeterminate-progress 1.5s ease-in-out infinite;
+  --animate-progress-spin: progress-spin 1s linear infinite;
+}
+
+@keyframes skeleton-shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Radix Dialog fade + zoom animations (shadcn pattern). */
+@keyframes dialog-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-content-in {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes dialog-content-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.95;
+  }
+}
+
+@theme {
+  --animate-dialog-overlay-in: dialog-overlay-in 150ms ease-out;
+  --animate-dialog-overlay-out: dialog-overlay-out 150ms ease-in;
+  --animate-dialog-content-in: dialog-content-in 150ms ease-out;
+  --animate-dialog-content-out: dialog-content-out 150ms ease-in;
+}
+
+/* Sheet bottom-sheet slide animations (Radix Dialog-based). */
+@keyframes sheet-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheet-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sheet-content-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheet-content-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@theme {
+  --animate-sheet-overlay-in: sheet-overlay-in 200ms ease-out;
+  --animate-sheet-overlay-out: sheet-overlay-out 200ms ease-in;
+  --animate-sheet-content-in: sheet-content-in 350ms cubic-bezier(0.32, 0.72, 0, 1);
+  --animate-sheet-content-out: sheet-content-out 300ms ease-in;
+}
+
+/* Navigation menu panel: fade in while rising into place from below (Relume-style),
+   reversed on close. A keyframe (not a transition) so it plays on mount — Radix
+   mounts the viewport already in its open state, leaving a transition no "from". */
+@keyframes navigation-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navigation-menu-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+@theme {
+  --animate-navigation-menu-in: navigation-menu-in 340ms cubic-bezier(0.33, 1, 0.68, 1);
+  --animate-navigation-menu-out: navigation-menu-out 200ms ease-in;
+  /* Same entrance as the panel, but Radix mounts the arrow one frame later — the
+     negative delay starts it already caught up so it doesn't pop in behind. */
+  --animate-navigation-menu-arrow-in: navigation-menu-in 340ms cubic-bezier(0.33, 1, 0.68, 1) -30ms;
+}

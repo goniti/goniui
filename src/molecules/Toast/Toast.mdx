@@ -1,0 +1,45 @@
+import { Meta, Title, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as ToastStories from './Toast.stories'
+
+<Meta of={ToastStories} />
+
+# Toast
+
+App-wide notification system. Mount `<Toaster>` once at the root; fire toasts
+from anywhere with the `toast()` imperative API (re-exported from
+`goniui/toast`).
+
+```tsx
+import { Toaster, toast } from 'goniui/toast'
+
+// In your app root
+;<Toaster />
+
+// Anywhere in your code
+toast('Changes saved')
+toast.success('Published')
+toast.error('Something went wrong')
+toast.info('A new version is available')
+toast.warning('Session expiring soon')
+toast.promise(upload(), { loading: '…', success: 'Done', error: 'Failed' })
+toast('Item deleted', {
+  action: { label: 'Undo', onClick: () => toast.success('Restored') },
+})
+```
+
+## Playground
+
+Trigger every tone and watch how they stack. Hover a toast to pause the progress
+bar; drag in any direction or click × to dismiss.
+
+<Canvas of={ToastStories.Playground} />
+
+## Position
+
+Six anchor points — switch the `position` control to preview each one.
+
+<Canvas of={ToastStories.Positions} />
+
+## Props
+
+<ArgTypes of={ToastStories} />

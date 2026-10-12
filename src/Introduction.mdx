@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introduction" />
+
+# goniui
+
+Domain-agnostic, themeable React components for **Tailwind CSS v4** apps, built on
+Radix primitives. The default theme is neutral black & white, with a dark mode.
+
+## Setup
+
+```sh
+pnpm add goniui
+```
+
+```css
+/* app stylesheet */
+@import 'tailwindcss';
+@import 'goniui/styles.css';
+```
+
+```tsx
+import { Button, Text } from 'goniui'
+import * as Dialog from 'goniui/dialog'
+```
+
+## Layers
+
+- **atoms** — the smallest indivisible bricks (`Button`, `Icon`, `Input`, `Switch`).
+- **molecules** — ≥2 atoms combined into a reusable unit (`Pagination`, `Calendar`,
+  `Carousel`, `Form`).
+- **organisms** — larger blocks built from atoms and molecules (`DataTable`).
+
+Domain-aware blocks do **not** live here — they belong to the app.
+The litmus test: does it mention a domain noun? Yes → app. No → goniui.
+
+## Conventions
+
+- **Theming via design tokens.** Colours come from CSS variables
+  (`goniui/styles.css`) — never hardcoded. Re-skin the whole product by overriding
+  the variables (`--primary-400`, `--background`, `--foreground`…) in your stylesheet;
+  a `.dark` class on `<html>` switches to the dark theme.
+- **Variants via `tailwind-variants`.** Each component owns a `tv({ base, variants })`
+  definition; `className` is merged last (tailwind-merge).
+- **Primitive abstraction.** Radix and external libs are wrapped behind internal
+  `*Root` / `*Indicator` / adapter files — consumers import our components only.
+- **Composition over configuration.** UI is passed as children/slots, not assembled
+  from boolean props.
+- **Icons** come from [Lucide](https://lucide.dev) through the `Icon` atom.
+
+## Accessibility
+
+Every story runs through **axe-core** (`@storybook/addon-a11y`). Components are
+accessible by default: semantic HTML first, ARIA only to fill gaps.
+
+Browse the **atoms**, **molecules** and **organisms** in the sidebar. Each component
+page is auto-generated from its stories (props table + live examples).

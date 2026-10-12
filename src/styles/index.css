@@ -1,0 +1,12 @@
+/* goniui stylesheet. Import it right after Tailwind in the app stylesheet:
+ *
+ *   @import 'tailwindcss';
+ *   @import 'goniui/styles.css';
+ */
+
+/* Scan the compiled components so Tailwind generates their classes. */
+@source '../';
+
+@import './theme.css';
+@import './reset.css';
+@import './animations.css';

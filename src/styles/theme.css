@@ -1,0 +1,123 @@
+/* goniui design tokens: a neutral black & white theme.
+ *
+ * Components only use the utilities generated from these tokens
+ * (`bg-primary-400`, `text-foreground`, `border-border`…), never raw values:
+ * override the variables below in your own stylesheet to re-skin everything.
+ * A `.dark` class on <html> switches every token to the dark theme. */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Action scale: near-black in light mode, near-white in dark mode.
+     400 is the call-to-action fill, 300 its hover, 700 the accent text. */
+  --primary-50: #fafafa;
+  --primary-100: #f4f4f5;
+  --primary-200: #e4e4e7;
+  --primary-300: #3f3f46;
+  --primary-400: #18181b;
+  --primary-500: #27272a;
+  --primary-600: #09090b;
+  --primary-700: #18181b;
+  --primary-800: #3f3f46;
+  --primary-900: #09090b;
+  --primary-950: #000000;
+  /* Text and icons drawn on a `bg-primary-400` surface. */
+  --primary-foreground: #fafafa;
+
+  /* Surfaces */
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f4f5;
+  --foreground: #09090b;
+  --foreground-muted: #52525b;
+  --border: #e4e4e7;
+  /* Scrim behind a modal — dark in both themes, unlike every surface token. */
+  --overlay: rgb(9 9 11 / 0.6);
+  /* Inverted surface — a tooltip contrasts with the page by flipping with it. */
+  --surface-inverse: #09090b;
+  --foreground-inverse: #fafafa;
+
+  /* Stacking order of floating surfaces. Consume as `z-[var(--z-dialog)]`
+     (Tailwind v4 has no z-index theme namespace). */
+  --z-navbar: 30;
+  --z-overlay: 40;
+  --z-dialog: 50;
+  --z-popover: 60;
+  --z-toast: 70;
+}
+
+.dark {
+  --primary-50: #18181b;
+  --primary-100: #27272a;
+  --primary-200: #3f3f46;
+  --primary-300: #d4d4d8;
+  --primary-400: #fafafa;
+  --primary-500: #e4e4e7;
+  --primary-600: #f4f4f5;
+  --primary-700: #fafafa;
+  --primary-800: #d4d4d8;
+  --primary-900: #fafafa;
+  --primary-950: #ffffff;
+  --primary-foreground: #09090b;
+
+  --background: #09090b;
+  --surface: #111113;
+  --surface-2: #1c1c1f;
+  --foreground: #fafafa;
+  --foreground-muted: #a1a1aa;
+  --border: rgb(255 255 255 / 0.1);
+  --overlay: rgb(0 0 0 / 0.7);
+  --surface-inverse: #fafafa;
+  --foreground-inverse: #09090b;
+}
+
+@theme inline {
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-overlay: var(--overlay);
+  --color-surface-inverse: var(--surface-inverse);
+  --color-foreground-inverse: var(--foreground-inverse);
+}
+
+@theme {
+  /* Neutral greys (Tailwind zinc). */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f4f4f5;
+  --color-neutral-200: #e4e4e7;
+  --color-neutral-300: #d4d4d8;
+  --color-neutral-400: #a1a1aa;
+  --color-neutral-500: #71717a;
+  --color-neutral-600: #52525b;
+  --color-neutral-700: #3f3f46;
+  --color-neutral-800: #27272a;
+  --color-neutral-900: #18181b;
+  --color-neutral-950: #09090b;
+
+  /* Status colours: the only hues of the theme, kept for meaning. */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  /* Headings (`font-display`): the sans stack unless you set a display font. */
+  --font-display: var(--font-sans);
+  --radius: 0.25rem;
+}
