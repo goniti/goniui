@@ -3,6 +3,8 @@
 Neutral, themeable React components for **Tailwind CSS v4**, built on Radix primitives.
 Black & white by default, with a dark mode — re-skin everything with a handful of CSS variables.
 
+**[Live demo & Storybook →](https://goniti.github.io/goniui/)** · [npm](https://www.npmjs.com/package/goniui) · [GitHub](https://github.com/goniti/goniui)
+
 - ~50 components: atoms (`Button`, `Input`, `Select`, `Switch`, `Text`, `Flex`…), molecules
   (`Dialog`, `DropdownMenu`, `Tabs`, `Toast`, `Calendar`, `Agenda`, `Carousel`, `Form`…) and
   organisms (`DataTable`)
