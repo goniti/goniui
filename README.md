@@ -116,7 +116,7 @@ pnpm lint && pnpm typecheck && pnpm build
 
 1. `pnpm changeset` — describe the change (patch / minor / major) and commit the generated file.
 2. On `main`, the **Release** workflow opens a "Version packages" pull request.
-3. Merging it publishes the new version to npm (with provenance).
+3. Merging it publishes the new version to npm through trusted publishing (OIDC, no npm token) with provenance.
 
 ## License
 
