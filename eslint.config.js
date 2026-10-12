@@ -59,6 +59,13 @@ export default tseslint.config(
     },
   },
 
+  // Node scripts (release tooling).
+  {
+    files: ['scripts/**'],
+    languageOptions: { globals: { console: 'readonly', process: 'readonly' } },
+    rules: { 'no-console': 'off' },
+  },
+
   // Atoms may only import other atoms.
   {
     files: ['src/atoms/**'],

@@ -158,7 +158,7 @@
     "build-storybook": "storybook build",
     "check:package": "publint",
     "changeset": "changeset",
-    "release": "pnpm build && changeset publish",
+    "release": "pnpm build && node scripts/publish.mjs",
     "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {

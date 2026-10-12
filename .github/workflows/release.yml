@@ -21,7 +21,6 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-          registry-url: https://registry.npmjs.org
       # Trusted publishing (OIDC) needs npm >= 11.5.1: no npm token is stored.
       - run: npm install -g npm@latest
       - run: pnpm install --frozen-lockfile
