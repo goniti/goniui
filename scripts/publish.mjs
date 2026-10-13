@@ -17,9 +17,7 @@ const published = (() => {
 if (published) {
   console.log(`${name}@${version} is already published.`)
 } else {
-  execFileSync('npm', ['publish', '--access', 'public', '--loglevel', 'verbose'], {
-    stdio: 'inherit',
-  })
+  execFileSync('npm', ['publish', '--access', 'public'], { stdio: 'inherit' })
   // `New tag:` lets changesets/action create the GitHub release.
   execFileSync('pnpm', ['changeset', 'tag'], { stdio: 'inherit' })
   console.log(`New tag: ${name}@${version}`)
